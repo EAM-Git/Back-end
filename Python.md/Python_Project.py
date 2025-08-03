@@ -139,8 +139,8 @@ class FilterPandas:
         print(sorted_movies)
 
 # Group movies.
-grouped_genres = df.groupby("Genre").agg(average_rating=("IMDB_Rating", "mean"))
-grouped_years = df.groupby("Released_Year").agg(average_rating=("IMDB_Rating", "mean"))
+grouped_genres = df.groupby("Genre").agg(average_rating=("IMDB_Rating", "mean")).round(2)
+grouped_years = df.groupby("Released_Year").agg(average_rating=("IMDB_Rating", "mean")).round(2)
 
 # --------------- Run ---------------
 # === Task 1.1 ===
@@ -156,5 +156,5 @@ top_movies = FilterPandas.filter_movies_with_rating(df, threshold=4.0)["Series_T
 classified_movies = FilterPandas.filter_movies_with_genres(df, genre="Action")["Series_Title"]
 
 # === Task 2.2 ===
-print(grouped_genres)
-print(grouped_years)
+print(grouped_genres.round(2))
+print(grouped_years.round(2))
