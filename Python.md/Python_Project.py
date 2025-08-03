@@ -105,7 +105,7 @@ class FilterNumPy:
 df = pd.read_csv(f"{path}/imdb_top_1000.csv")
 
 # Check for missing data.
-missing_info = imdb_dataset.isnull().sum()
+missing_info = df.isnull().sum()
 print(f"Missing values:\n{missing_info}")
 
 # Check for missing data.
